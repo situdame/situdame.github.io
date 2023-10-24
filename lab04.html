@@ -341,11 +341,7 @@
             }
         if (sendClicked){        
             labelContainer.firstChild.innerHTML = "植物症狀看起來有" + Math.floor(pred_result[0]*100) + "%是 " + pred_result[1];
-            // Add disease info
-            let diseaseInfo = getDiseaseInfo(pred_result[1]);
-            if (diseaseInfo != null) {
-                labelContainer.firstChild.innerHTML += "<br>" + diseaseInfo;
-            }    
+            
             //****POST Value****
             $.ajax({
                     url: "https://io.adafruit.com/api/v2/" + aio_n + "/feeds/" + aio_f + "/data?X-AIO-Key=" + aio_k,
@@ -366,18 +362,6 @@
 
         }
 
-    function getDiseaseInfo(diseaseName) {
-        switch(diseaseName) {
-                case "Potato___Early_blight":
-                    return "Potato___Early_blight是一種常見的植物疾病，通常會導致葉子黃化。建議使用抗病品種和適當的灌溉來防治。";
-                case "Potato___Late_blight":
-                    return "Potato___Late_blight通常會導致植物生長緩慢。建議使用有機肥料和確保充足的陽光來防治。";
-                case "Potato___healthy":
-                    return "Potato___healthy植物非常健康。";    
-                // Add more diseases if needed
-                default:
-                    return null;
-                }
-    }
+    
 
 </script>
