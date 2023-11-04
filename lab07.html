@@ -317,7 +317,7 @@
         
 
         // $("#predictResult").text(pred_result[1]);
-        if (pred_result[0] > 0.7 && pred_result[1] == "no_mask" && !alarm_stus ){
+        if (pred_result[0] > 0.7 && pred_result[1] == "mouse" && !alarm_stus ){
             console.log("alarm!");
             // sendAlarm(pred_result[1]);
             alarm_stus = true;
@@ -349,7 +349,7 @@
 
             }
 
-        else if (pred_result[1] !== "no_mask" && alarm_stus){
+        else if (pred_result[1] !== "mouse" && alarm_stus){
                 console.log("clear!");
                 // sendAlarm(pred_result[1]);
                 alarm_stus = false;
