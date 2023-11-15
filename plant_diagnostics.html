@@ -1,6 +1,6 @@
 <head>
     <title>
-        LAB04 心情日記
+        植物疾病診斷系統
     </title>
 <style>
     html,
@@ -178,7 +178,7 @@
 <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <body>
 <!-- <div class="left"> -->
-<h1>LAB04 心情日記</h1>
+<h1>植物疾病診斷系統</h1>
 
 <div class="div-relative" style="margin: auto;width: 90%;">
 <div class="msgbox" id="msgbox">
@@ -204,7 +204,7 @@
 <div id="label-container" class="label"></div>
 <br>
 <div id="webcam-container" class="cam"></div>
-<button id="sendBtn" type="button" onclick="preding()" >分享心情</button>
+<button id="sendBtn" type="button" onclick="preding()" >植物疾病診斷</button>
 </div>
 <!-- </div> -->
 <!-- <div class="right"></div> -->
@@ -295,7 +295,7 @@
         window.requestAnimationFrame(loop); // update canvas by loop-function
         document.getElementById("sendBtn").style.display = "block";
         // 更改 讀取中 文字
-        labelContainer.firstChild.innerHTML = "準備好後請按下分享心情按鈕";
+        labelContainer.firstChild.innerHTML = "準備好後請按下植物疾病診斷按鈕";
         //增加放 label 的 Div
         for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
@@ -311,10 +311,10 @@
 
     // run the webcam image through the image model
     function preding() {
-        labelContainer.firstChild.innerHTML = '心情辨識中...';
+        labelContainer.firstChild.innerHTML = '疾病診斷中...';
         // document.getElementById("sendBtn").style.backgroundColor = "#bbb";
         // document.getElementById("sendBtn").setAttribute("disabled","true");
-        console.log("辨識中");
+        console.log("診斷中");
         sendClicked = true;
         predict();
     }
@@ -340,7 +340,7 @@
                 // labelContainer.childNodes[i].innerHTML = Predct_Name + " : " + Predct_Probability;
             }
         if (sendClicked){        
-            labelContainer.firstChild.innerHTML = "您看起來有" + Math.floor(pred_result[0]*100) + "%心情是 " + pred_result[1];
+            labelContainer.firstChild.innerHTML = "植物看起來有" + Math.floor(pred_result[0]*100) + "%概率是 " + pred_result[1];
                 // Add disease info
             let diseaseInfo = getDiseaseInfo(pred_result[1]);
             if (diseaseInfo != null) {
